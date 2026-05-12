@@ -1,0 +1,96 @@
+{
+  "name": "Oil & Gas Exploration Scenario",
+  "layers": [
+    {
+      "id": "layer_shallow",
+      "top_depth": 0,
+      "thickness": 100,
+      "lithology": "sedimentary",
+      "susceptibility": 0.0001,
+      "density": 2.5,
+      "description": "Shallow sediments"
+    },
+    {
+      "id": "layer_reservoir",
+      "top_depth": 100,
+      "thickness": 50,
+      "lithology": "sedimentary",
+      "susceptibility": 8e-05,
+      "density": 2.5,
+      "description": "Reservoir sandstone"
+    },
+    {
+      "id": "layer_source",
+      "top_depth": 150,
+      "thickness": 100,
+      "lithology": "sedimentary",
+      "susceptibility": 0.00015,
+      "density": 2.5,
+      "description": "Source rock (shale)"
+    },
+    {
+      "id": "layer_basement",
+      "top_depth": 250,
+      "thickness": 1000,
+      "lithology": "igneous",
+      "susceptibility": 0.005,
+      "density": 2.5,
+      "description": "Basement complex"
+    }
+  ],
+  "faults": [
+    {
+      "id": "fault_growth",
+      "fault_type": "normal",
+      "strike": 90,
+      "dip": 45,
+      "displacement": 50,
+      "position": [
+        150,
+        0,
+        0
+      ],
+      "length": 500,
+      "width": 10,
+      "susceptibility_contrast": 0.0005
+    }
+  ],
+  "ore_bodies": [],
+  "pipes": [],
+  "targets": [
+    {
+      "id": "target_anticline",
+      "target_type": "anticline",
+      "position": [
+        0,
+        0,
+        -125
+      ],
+      "dimensions": [
+        200,
+        100,
+        30
+      ],
+      "depth": 125,
+      "porosity": 0.25,
+      "fluid_saturation": "oil"
+    },
+    {
+      "id": "target_salt",
+      "target_type": "salt_dome",
+      "position": [
+        300,
+        0,
+        -300
+      ],
+      "dimensions": [
+        150,
+        150,
+        400
+      ],
+      "depth": 300,
+      "porosity": 0.05,
+      "fluid_saturation": "gas"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "mode": "Dev",
+  "gridResolutionDev": 10,
+  "gridResolutionFull": 50,
+  "surveyAreaSize": 100.0,
+  "sensorHeight": 1.5,
+  "regionalFieldStrength": 45000.0,
+  "regionalFieldDirection": {
+    "x": 0.5,
+    "y": 0.8,
+    "z": 0.1
+  },
+  "enableNoise": true,
+  "noiseLevel": 5.0,
+  "enableDrift": true,
+  "driftRate": 0.1,
+  "currentLanguage": "English",
+  "deviceType": "PPM"
+}

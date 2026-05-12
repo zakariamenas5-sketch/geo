@@ -1,0 +1,94 @@
+{
+  "name": "Mining Exploration Scenario",
+  "layers": [
+    {
+      "id": "layer_overburden",
+      "top_depth": 0,
+      "thickness": 5,
+      "lithology": "unconsolidated",
+      "susceptibility": 5e-05,
+      "density": 2.5,
+      "description": "Surface overburden"
+    },
+    {
+      "id": "layer_host",
+      "top_depth": 5,
+      "thickness": 50,
+      "lithology": "sedimentary",
+      "susceptibility": 0.0001,
+      "density": 2.5,
+      "description": "Host sedimentary rock"
+    },
+    {
+      "id": "layer_basement",
+      "top_depth": 55,
+      "thickness": 500,
+      "lithology": "igneous",
+      "susceptibility": 0.01,
+      "density": 2.5,
+      "description": "Crystalline basement"
+    }
+  ],
+  "faults": [
+    {
+      "id": "fault_main",
+      "fault_type": "normal",
+      "strike": 45,
+      "dip": 60,
+      "displacement": 10,
+      "position": [
+        50,
+        0,
+        0
+      ],
+      "length": 200,
+      "width": 5,
+      "susceptibility_contrast": 0.002
+    }
+  ],
+  "ore_bodies": [
+    {
+      "id": "ore_massive_sulfide",
+      "ore_type": "massive_sulfide",
+      "position": [
+        0,
+        0,
+        -30
+      ],
+      "shape": "ellipsoid",
+      "dimensions": [
+        20,
+        15,
+        10
+      ],
+      "susceptibility": 0.08,
+      "remanent_magnetization": [
+        0.5,
+        0,
+        2.0
+      ],
+      "grade": 15.0
+    }
+  ],
+  "pipes": [
+    {
+      "id": "pipe_water",
+      "pipe_type": "steel",
+      "start_position": [
+        -30,
+        -30,
+        0
+      ],
+      "end_position": [
+        30,
+        30,
+        0
+      ],
+      "diameter": 0.5,
+      "depth": 2,
+      "wall_thickness": 0.01,
+      "susceptibility": 0.5
+    }
+  ],
+  "targets": []
+}
