@@ -1,0 +1,42 @@
+{
+  "scenarioName": "Oil and Gas Exploration",
+  "regionalField": 48000.0,
+  "bodies": [
+    {
+      "id": "salt_dome",
+      "type": "prism",
+      "centerX": 0.0,
+      "centerY": 0.0,
+      "centerZ": 50.0,
+      "sizeX": 40.0,
+      "sizeY": 80.0,
+      "sizeZ": 60.0,
+      "susceptibility": -0.002,
+      "rotation": 0.0
+    },
+    {
+      "id": "anticline_trap",
+      "type": "prism",
+      "centerX": 35.0,
+      "centerY": 0.0,
+      "centerZ": 35.0,
+      "sizeX": 50.0,
+      "sizeY": 15.0,
+      "sizeZ": 25.0,
+      "susceptibility": 0.008,
+      "rotation": 10.0
+    },
+    {
+      "id": "basement_high",
+      "type": "prism",
+      "centerX": -40.0,
+      "centerY": 0.0,
+      "centerZ": 60.0,
+      "sizeX": 35.0,
+      "sizeY": 20.0,
+      "sizeZ": 40.0,
+      "susceptibility": 0.04,
+      "rotation": 0.0
+    }
+  ]
+}

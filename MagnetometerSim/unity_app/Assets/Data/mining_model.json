@@ -1,0 +1,42 @@
+{
+  "scenarioName": "Mining Exploration",
+  "regionalField": 45000.0,
+  "bodies": [
+    {
+      "id": "ore_body_1",
+      "type": "prism",
+      "centerX": 20.0,
+      "centerY": 0.0,
+      "centerZ": 15.0,
+      "sizeX": 30.0,
+      "sizeY": 10.0,
+      "sizeZ": 20.0,
+      "susceptibility": 0.05,
+      "rotation": 0.0
+    },
+    {
+      "id": "ore_body_2",
+      "type": "prism",
+      "centerX": -30.0,
+      "centerY": 0.0,
+      "centerZ": 20.0,
+      "sizeX": 25.0,
+      "sizeY": 8.0,
+      "sizeZ": 15.0,
+      "susceptibility": 0.03,
+      "rotation": 15.0
+    },
+    {
+      "id": "fault_zone",
+      "type": "fault",
+      "centerX": 0.0,
+      "centerY": 0.0,
+      "centerZ": 25.0,
+      "sizeX": 100.0,
+      "sizeY": 5.0,
+      "sizeZ": 30.0,
+      "susceptibility": 0.01,
+      "rotation": 45.0
+    }
+  ]
+}
