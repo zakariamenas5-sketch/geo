@@ -1,216 +1,221 @@
-# Magnetometer Simulation Platform
-# منصة محاكاة مقياس المغناطيسية
+# 🧲 Magnetometer Simulation Platform
 
-## 🎯 Overview / نظرة عامة
-
-Professional desktop application for simulating 3D Magnetometer surveys used in applied geophysics. This platform combines real physics, interactive 3D visualization, and can be developed into a startup product.
-
-تطبيق سطح مكتب احترافي لمحاكاة مسوحات مقياس المغناطيسية ثلاثية الأبعاد المستخدمة في الجيوفيزياء التطبيقية. تجمع هذه المنصة بين الفيزياء الحقيقية والتصور ثلاثي الأبعاد التفاعلي.
+## منصة محاكاة المغناطيسومتر للجيوفيزياء التطبيقية
 
 ---
 
-## 🏗️ Architecture / البنية المعمارية
+## 📋 محتويات المشروع
 
 ```
 MagnetometerSim/
+├── physics_engine/          # المحرك الفيزيائي (Python)
+│   ├── magnetometer_physics.py
+│   ├── geological_engine.py
+│   ├── survey_engine.py
+│   └── visualization.py
 │
-├── physics_engine/          # Python Physics Calculations
-│   ├── magnetometer_physics.py    # Core physics engine
-│   ├── geological_engine.py       # Geological modeling
-│   └── visualization.py           # 2D/3D data visualization
-│
-├── unity_app/               # Unity 3D Application (Future)
+├── unity_app/               # تطبيق Unity 3D
 │   ├── Assets/
-│   ├── Scripts/
-│   └── Scenes/
+│   │   ├── Scripts/
+│   │   │   ├── Core/       # النواة الرئيسية
+│   │   │   ├── Physics/    # الفيزياء المغناطيسية
+│   │   │   ├── Survey/     # نظام المسح
+│   │   │   ├── Visualization/  # التصور البصري
+│   │   │   └── UI/         # واجهة المستخدم
+│   │   └── Data/           # ملفات JSON
+│   └── README.md
 │
-├── data/                    # Data Storage
-│   ├── survey_data.json     # Survey measurements
-│   ├── *_model.json         # Geological models
-│   └── visualizations/      # Generated plots
-│
-├── models/                  # 3D Models
-│   └── (Unity assets)
-│
-└── docs/                    # Documentation
-    └── (Technical docs)
+├── data/                    # بيانات المسح المُولدة
+├── models/                  # النماذج الجيولوجية
+├── docs/                    # التوثيق
+└── run_all.py              # نقطة الدخول الرئيسية
 ```
 
 ---
 
-## 🔬 Physics Engine / المحرك الفيزيائي
+## 🎯 الميزات الرئيسية
 
-### Supported Magnetometer Types:
-- **Proton Precession Magnetometer (PPM)** - Primary focus
-- **Cesium Vapor Magnetometer** (Future)
-- **Fluxgate Magnetometer** (Future)
+### 1. أنواع الأجهزة المدعومة
+- ✅ **Proton Precession Magnetometer (PPM)**
+- ✅ **Cesium Vapor Magnetometer**
+- ✅ **Fluxgate Magnetometer**
 
-### Physical Equations:
-- **B = -∇V** (Magnetic field from potential)
-- **V = (M · r) / (4π r³)** (Dipole potential)
+### 2. النماذج الفيزيائية
+- Dipole Model: `B = (μ₀/4π) × [3(m·r̂)r̂ - m] / r³`
+- Prism Model: حساب المجال للأجسام المستطيلة
+- Regional Field: المجال المغناطيسي الإقليمي
+- Noise & Drift: محاكاة واقعية
 
-### Geological Bodies Supported:
-- Horizontal layers (طبقات أفقية)
-- Faults (فوالق)
-- Ore bodies (أجسام معدنية)
-- Buried pipes (أنابيب مدفونة)
-- Oil & Gas targets (أهداف بترولية)
+### 3. البيئات الجيولوجية
+- طبقات أفقية (Horizontal Layers)
+- فوالق (Faults)
+- أجسام معدنية (Ore Bodies)
+- أنابيب مدفونة (Buried Pipes)
+- أهداف بترولية (Oil & Gas Targets)
 
-### Survey Modes:
-- Grid survey
-- Line survey
-- Walking mode
-- Drone mode
+### 4. أنماط المسح
+- Grid Survey (مسح شبكي)
+- Line Survey (مسح خطي)
+- Walking Mode
+- Drone Mode
 
----
+### 5. أوضاع الأداء
+| الوضع | الدقة | النقاط | الاستخدام |
+|-------|-------|--------|-----------|
+| Dev Mode | 10×10 | 121 | أجهزة ضعيفة |
+| Full Mode | 50×50 | 2601 | دقة عالية |
 
-## 📊 Features / الميزات
-
-### Phase 1 (Current - Python Backend):
-✅ Core physics calculations
-✅ Multiple magnetometer types
-✅ Geological modeling
-✅ Survey simulation
-✅ Data export to JSON
-✅ 2D visualization (contour maps, profiles)
-✅ Predefined scenarios (Mining, Oil & Gas, Archaeology)
-
-### Phase 2 (Next - Unity Integration):
-- [ ] Unity 3D scene setup
-- [ ] Real-time sensor visualization
-- [ ] Interactive geological model editing
-- [ ] Live anomaly display
-
-### Phase 3 (Advanced):
-- [ ] Multi-language support (AR/FR/EN)
-- [ ] Performance modes (Dev/Full)
-- [ ] Advanced interpretation tools
-- [ ] Export to industry formats
+### 6. اللغات
+- 🇬🇧 English
+- 🇫🇷 Français
+- 🇸🇦 العربية
 
 ---
 
-## 🚀 Quick Start / البدء السريع
+## 🚀 البدء السريع
 
-### Prerequisites / المتطلبات:
-```bash
-pip install numpy matplotlib scipy
-```
+### المرحلة 1: تشغيل المحرك الفيزيائي (Python)
 
-### Run Physics Engine:
 ```bash
 cd /workspace/MagnetometerSim
-python3 physics_engine/magnetometer_physics.py
+python3 run_all.py
 ```
 
-### Run Geological Engine:
+**المخرجات:**
+- ملفات JSON في مجلد `data/`
+- رسوميات في `data/visualizations/`
+
+### المرحلة 2: تشغيل تطبيق Unity
+
 ```bash
-python3 physics_engine/geological_engine.py
-```
-
-### Generate Visualizations:
-```bash
-python3 physics_engine/visualization.py
+# افتح Unity Hub
+# أضف مشروع unity_app/
+# شغّل المشهد MainScene
 ```
 
 ---
 
-## 📁 Generated Files / الملفات المُنشأة
+## 📊 السيناريوهات المتاحة
 
-After running the engines, you'll find:
+### 1. التعدين (Mining)
+- استكشاف الخامات الحديدية
+- تحديد الفوالق الجيولوجية
+- قابلية مغناطيسية: 0.01 - 0.15
 
-### In `/data/`:
-- `survey_data.json` - Survey measurements
-- `mining_model.json` - Mining exploration scenario
-- `oil_gas_model.json` - Oil & gas exploration scenario
-- `archaeology_model.json` - Archaeological survey scenario
+### 2. النفط والغاز (Oil & Gas)
+- القبب الملحية
+- المصائد البترولية
+- ارتفاعات القاعدة الصخرية
 
-### In `/data/visualizations/`:
-- `contour_map.png` - Magnetic field contour map
-- `anomaly_map.png` - Magnetic anomaly map
-- `components.png` - Field component plots
-- `profile.png` - Magnetic profile along survey line
-- `surface_3d.png` - 3D surface visualization
-
----
-
-## 🔧 Configuration / الإعدادات
-
-### Performance Modes:
-- **DEV Mode**: Coarse grid (10x10), fast computation
-- **FULL Mode**: Fine grid (50x50), high accuracy
-
-### Device Parameters:
-
-| Parameter | PPM | Cesium | Fluxgate |
-|-----------|-----|--------|----------|
-| Sampling Rate | 1 Hz | 10 Hz | 100 Hz |
-| Accuracy | 0.1 nT | 0.01 nT | 0.5 nT |
-| Noise | 0.5 nT | 0.1 nT | 1.0 nT |
+### 3. الآثار (Archaeology)
+- الجدران القديمة
+- الفخار المدفون
+- القطع المعدنية الأثرية
 
 ---
 
-## 📈 Scientific Background / الخلفية العلمية
+## 🔗 الربط بين Python و Unity
 
-### Magnetic Susceptibility Values:
+### عبر JSON:
+```python
+# Python: تصدير البيانات
+data = {
+    "measurements": [...],
+    "model": {...}
+}
+json.dump(data, open("survey_data.json", "w"))
+```
 
-| Rock Type | Susceptibility (SI) |
-|-----------|---------------------|
-| Sedimentary | 0.0001 |
-| Igneous | 0.01 |
-| Metamorphic | 0.005 |
-| Iron Ore | 0.05 - 0.5 |
-| Steel | 0.3 - 1.0 |
-
-### Typical Anomaly Magnitudes:
-
-| Target Type | Anomaly Size (nT) |
-|-------------|-------------------|
-| Iron ore body | 100 - 10,000 |
-| Buried pipe | 10 - 500 |
-| Archaeological wall | 5 - 50 |
-| Oil trap | 1 - 10 |
+```csharp
+// Unity: تحميل البيانات
+SurveyData data = DataManager.LoadSurveyData("survey_data.json");
+```
 
 ---
 
-## 🎓 Educational Use / الاستخدام التعليمي
+## 📈 المخرجات
 
-This platform is designed for:
-- Geophysics students learning magnetic methods
-- Professionals testing survey designs
-- Researchers developing new interpretation techniques
-- Startup development in geophysical technology
+### من Python Engine:
+- خرائط كونتورية (Contour Maps)
+- مقاطع مغناطيسية (Profiles)
+- أسطح ثلاثية الأبعاد (3D Surfaces)
+- ملفات JSON
 
----
-
-## 📝 License / الترخيص
-
-Educational and research use. Commercial licensing available for startup development.
-
----
-
-## 👥 Authors / المؤلفون
-
-Developed with AI assistance for educational and commercial purposes.
+### من Unity App:
+- تصور ثلاثي الأبعاد في الزمن الحقيقي
+- قراءات لحظية للمجال
+- خرائط حرارية تفاعلية
+- واجهة مستخدم كاملة
 
 ---
 
-## 📧 Contact / للتواصل
+## 🏗️ البنية المعمارية
 
-For questions, suggestions, or collaboration opportunities.
+```
+┌─────────────────────────────────────────────┐
+│           SimulationManager                 │
+│         (المدير الرئيسي للمحاكاة)            │
+└──────────────┬──────────────────────────────┘
+               │
+    ┌──────────┼──────────┐
+    │          │          │
+┌───▼───┐  ┌───▼───┐  ┌──▼────┐
+│Physics│  │Survey │  │  UI   │
+│Engine │  │Engine │  │Manager│
+└───┬───┘  └───┬───┘  └───┬───┘
+    │          │          │
+    │    ┌─────▼─────┐    │
+    │    │Geological │    │
+    │    │   Model   │    │
+    │    └───────────┘    │
+    │                     │
+┌───▼─────────────────────▼───┐
+│      DataManager (JSON)     │
+└─────────────────────────────┘
+```
 
 ---
 
-## 🔮 Future Enhancements / التحسينات المستقبلية
+## 🛠️ التطوير المستقبلي
 
-1. **Unity 3D Integration** - Real-time visualization
-2. **Multi-language UI** - Arabic, French, English
-3. **Advanced Inversion** - 3D magnetic inversion
-4. **Drone Simulation** - UAV survey planning
-5. **Machine Learning** - Automatic target detection
-6. **Cloud Integration** - Data sharing and collaboration
-7. **VR Support** - Immersive geological exploration
+### ميزات مقترحة:
+1. [ ] دعم أجهزة VR/AR
+2. [ ] تصدير إلى SEG-Y format
+3. [ ] تحليل تلقائي للشذوذ
+4. [ ] ذكاء اصطناعي للتفسير
+5. [ ] multiplayer collaboration
+6. [ ] cloud data sync
+
+### تحسينات الأداء:
+1. [ ] GPU acceleration (Compute Shaders)
+2. [ ] LOD system للنماذج
+3. [ ] Async loading للبيانات
+4. [ ] Procedural generation
 
 ---
 
-*Last Updated: May 2024*
-*Version: 1.0.0*
+## 📝 الترخيص
+
+هذا المشروع مفتوح المصدر لأغراض تعليمية وبحثية.
+
+---
+
+## 👥 الفريق
+
+- **مهندس البرمجيات**: تطوير المحرك الفيزيائي وتطبيق Unity
+- **الخبير الجيوفيزيائي**: التحقق من صحة المعادلات والنماذج
+- **مطور الرسوميات**: التصور ثلاثي الأبعاد وواجهات المستخدم
+
+---
+
+## 📞 التواصل
+
+للاستفسارات التقنية أو التعاون:
+- راجع ملف `README.md` في كل مجلد فرعي
+- تحقق من التوثيق في مجلد `docs/`
+
+---
+
+**الإصدار:** 1.0  
+**التاريخ:** 2024  
+**الحالة:** جاهز للتطوير والاستخدام
